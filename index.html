@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Voucher</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; }
+        img { width: 100px; height: 100px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Daftar Voucher</h1>
+    <div>
+        {% for code, used in vouchers %}
+            <div style="display:inline-block;">
+                <p>{{ code }} {% if used %}✅{% else %}❌{% endif %}</p>
+                <img src="/static/qrcodes/{{ code }}.png" alt="QR {{ code }}">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
